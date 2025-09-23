@@ -28,6 +28,7 @@ int main() {
     constexpr int32_t ac_capacity = 1000;
     std::string account_id;
     constexpr int32_t tx_count = 6;
+    int32_t ac_count = 0;
     int32_t tx_amount_cents[tx_count];
     std::string out;
     int32_t type;
@@ -38,14 +39,11 @@ int main() {
     int64_t out_total_fees;
     int64_t out_total_interest;
     int64_t out_net_exposure = 0;
-    std::string ac_account_id[] =  {"SAV123", "CHK456", "LOAN789"};
-    int64_t ac_balance[] = {1000, 30000, 2000};
-    int32_t tx_type[] = {0, 1, 2, 3, 4, 5};
-    std::string tx_account_id[] = {"Deposit", "Withdrawal", "Fee", "Interest",
-        "TransferIn", "TransferOut"};
-    int32_t ac_count = sizeof(ac_account_id) / sizeof(ac_account_id[0]);
+    auto ac_account_id = std::make_unique<std::string[]>(ac_capacity);
+    auto ac_balance = std::make_unique<int64_t[]>(ac_capacity);
+    auto tx_type = std::make_unique<int32_t[]>(tx_count);
+    auto tx_account_id = std::make_unique<std::string[]>(tx_count);
     
-
     std::cout << "Hi, I'm here to help you......." << std::endl;
     std::cout << "You can choose any transaction you want to do from this list..\n";
     std::cout << "========================================\n";
@@ -63,7 +61,7 @@ int main() {
         if (transaction == "getAccount" | transaction == "createAccount") {
             std::cout << "please, enter account id: ";
             std::cin >> account_id;
-            int32_t account_index = Get_or_create_account(ac_account_id, ac_balance, 
+            int32_t account_index = Get_or_create_account(ac_account_id.get(), ac_balance.get(), 
             ac_capacity, ac_count, account_id);
             std::cout << "Would you like to appear your account index? (yes/no): ";  
             std::cin >> out;
@@ -101,7 +99,7 @@ int main() {
             }
             std::cout << "please, enter amount: ";
             std::cin >> amount;
-            Apply_one(ac_account_id, ac_balance, ac_capacity, 
+            Apply_one(ac_account_id.get(), ac_balance.get(), ac_capacity, 
             ac_count, account_id, type, amount);
         } else if (transaction == "applyAllTransaction") {
             std::cout << "please, enter account id: ";
@@ -114,25 +112,36 @@ int main() {
             std::cin >> days >> day_count_basis;
             std::cout << "please, enter the rounding: ";
             std::cin >> rounding;
-            std::cout << "please, enter the principal and apr: ";
-            std::cin >> apr;
-            std::cout << "please, enter the years and compounds peryear: ";
+            std::cout << "please, enter the years and compounds per year: ";
             std::cin >> years >> compounds_per_year;
             for (int32_t iter = 0; iter < tx_count; iter++) {
                 std::cout << "please, enter amount: ";
                 std::cin >> amount;
                 tx_amount_cents[iter] = amount;
+                tx_type[iter] = iter;
+                switch(iter) {
+                    case 0: tx_account_id[iter] = "Deposit";     break; 
+                    case 1: tx_account_id[iter] = "Withdrawal";  break; 
+                    case 2: tx_account_id[iter] = "Fee";         break;
+                    case 3: tx_account_id[iter] = "Interest";    break;
+                    case 4: tx_account_id[iter] = "TransferIn";  break;
+                    case 5: tx_account_id[iter] = "TransferOut"; break;
+                    default:
+                        // DO NOTHING 
+                        break;
+                }
             }
-            Apply_all(tx_account_id, tx_type, tx_amount_cents, tx_count, 
-                ac_account_id, ac_balance, ac_capacity, ac_count);
+
+            Apply_all(tx_account_id.get(), tx_type.get(), tx_amount_cents, tx_count, 
+                ac_account_id.get(), ac_balance.get(), ac_capacity, ac_count);
         } else if (transaction == "getBalance") {
             std::cout << "please, enter account id: ";
             std::cin >> account_id;
-            int64_t balance = Balance_of(ac_account_id, ac_balance, ac_count, account_id);
+            int64_t balance = Balance_of(ac_account_id.get(), ac_balance.get(), ac_count, account_id);
             std::cout << "Would you like to appear your balance? (yes/no): ";  
             std::cin >> out;
             if (out == "yes") {
-                std::cout << "account index =  " << balance << std::endl;
+                std::cout << "balance =  " << balance << std::endl;
             } else {
                 //  DO NOTHING
             } 
@@ -141,9 +150,10 @@ int main() {
                 std::cout << "please, enter amount: ";
                 std::cin >> amount;
                 tx_amount_cents[iter] = amount;
+                tx_type[iter] = iter;
             }
-            Bank_summary(tx_type, tx_amount_cents, tx_count,
-                ac_balance, ac_count, out_total_deposits,
+            Bank_summary(tx_type.get(), tx_amount_cents, tx_count,
+                ac_balance.get(), ac_count, out_total_deposits,
                 out_total_withdrawals, out_total_fees,
                 out_total_interest,  out_net_exposure);
             std::cout << "Would you like to appear bank summary? (yes/no): ";  
