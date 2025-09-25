@@ -20,7 +20,8 @@ int main() {
     std::string out;
     char id[kMaxAudit];
     AccountType account_type;
-    uint8_t type;
+    TxKind type;
+    int input_type;
     double apr;
     int64_t fee_flat;
     int64_t balance;
@@ -39,8 +40,8 @@ int main() {
         std::cout << "please, enter your balance: ";
         std::cin >> balance;
         std::cout << "please, enter your account type: ";
-        std::cin >> type;   
-        if (type == 0) {
+        std::cin >> input_type;  
+        if (input_type == 0) {
             account_type = kChecking;
         }  else if (account_type == 1) {
             account_type = kSaving;
@@ -59,33 +60,35 @@ int main() {
             std::cin >> out;
             if (out == "yes") {
                 std::cout << "please, enter type of transaction: ";
-                std::cin >> type;
+                std::cin >> input_type;
+                type = static_cast<TxKind>(input_type);
                 std::cout << "please, enter time stamp: ";
                 std::cin >> ts;
                 std::cout << "please, enter note: ";
                 std::cin >> note;
                 switch(type) {
-                    case 0: 
+                    case kDeposit: 
                         std::cout << "please, enter amount: ";
                         std::cin >> amount;
                         account.Deposit(amount, ts, note);
                         break;
-                    case 1:
+                    case kWithdrawal:
                         std::cout << "please, enter amount: ";
                         std::cin >> amount;
                         account.Withdraw(amount, ts, note);
                         break;
-                    case 2:
+                    case kFee:
                         std::cout << "please, enter amount: ";
                         std::cin >> amount;
                         account.Fee(amount, ts, note);
                         break;
-                    case 3:
+                    case kInterest:
                         std::cout << "please, enter days: ";
                         std::cin >> days;
                         std::cout << "please, enter basis: ";
                         std::cin >> basis;
                         account.SimpleInterest(days, basis, ts, note);
+                        break;
                     default:
                         // DO NOTHING
                         break;

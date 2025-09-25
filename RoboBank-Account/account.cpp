@@ -10,6 +10,9 @@
  * 
  */
 
+
+#include "utils.h"
+#include "calculator.h"
 #include "account.h"
 
 TxRecord::TxRecord(TxKind kind, int64_t amount, int64_t time_stamp,
@@ -35,28 +38,28 @@ const TxRecord& Account::Audit_data() const
 
 void Account::Deposit(int64_t amount, int64_t ts, 
     const char* note) {
-        balance_ += amount;
+        balance_  = Apply_deposit(balance_, amount);
         Record__(kDeposit, amount, ts, note);
 }
 
 void Account::Withdraw(int64_t amount, int64_t ts, 
     const char* note) {
-        balance_ -= amount;
+        balance_  = Apply_withdrawal(balance_, amount);
         Record__(kWithdrawal, amount, ts, note);
 }
 
 void Account::Fee(int64_t amount, int64_t ts, 
     const char* note ) {
-        balance_ -= amount;
+        balance_  = Apply_fee(balance_, amount);
         Record__(kFee, amount, ts, note);
 }
 
 void Account::SimpleInterest(int32_t days, int32_t basis, int64_t ts,
     const char* note) {
-        double rate = (setting_.apr * balance_) * 
-        ((static_cast<float>(days))) / basis;
-        balance_ += rate;
-        Record__(kInterest, static_cast<int64_t>(rate), ts, note);
+        int64_t rate = Simple_interest(balance_, setting_.apr, days, 
+        basis, "HalfUp"); 
+        balance_  += rate;
+        Record__(kInterest, rate, ts, note);
 }
 
 void Account::Apply(const TxRecord& tx) {
