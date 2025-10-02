@@ -10,8 +10,17 @@
  * 
  */
 
-#include "calculator.h"
 #include "portfolio.h"
+
+#include <stdint.h>
+
+#include <memory>
+#include <string>
+#include <vector>
+#include <unordered_map>
+
+#include "calculator.h"
+
 
 std::unordered_map<std::string, std::unique_ptr<IAccount>> Portfolio::accounts_;
 std::vector<TxRecord> Portfolio::audit_;
@@ -40,25 +49,25 @@ const TxRecord& BaseAccount::Audit_data() const
 
 void BaseAccount::Deposit(int64_t amount, int64_t ts, 
     std::string note) {
-        balance_  = Apply_deposit(balance_, amount);
+        balance_  = ApplyDeposit(balance_, amount);
         Record__(kDeposit, amount, ts, note);
 }
 
 void BaseAccount::Withdraw(int64_t amount, int64_t ts, 
     std::string note) {
-        balance_  = Apply_withdrawal(balance_, amount);
+        balance_  = ApplyWithdrawal(balance_, amount);
         Record__(kWithdrawal, amount, ts, note);
 }
 
 void BaseAccount::Fee(int64_t amount, int64_t ts, 
     std::string note ) {
-        balance_  = Apply_fee(balance_, amount);
+        balance_  = ApplyFee(balance_, amount);
         Record__(kFee, amount, ts, note);
 }
 
-void BaseAccount::SimpleInterest(int32_t days, int32_t basis, 
+void BaseAccount::ApplyInterest(int32_t days, int32_t basis, 
     int64_t ts, std::string note) {
-        int64_t rate = Simple_interest(balance_, setting_.apr, days, 
+        int64_t rate = SimpleInterest(balance_, setting_.apr, days, 
         basis, "HalfUp"); 
         balance_  += rate;
         Record__(kInterest, rate, ts, note);
@@ -83,7 +92,7 @@ void BaseAccount::Apply(const TxRecord& tx) {
 
 void BaseAccount::Record__(TxKind kind, int64_t amount, int64_t ts,
     std::string note) {
-        if (audit_.size() <= kMaxAudit) {
+        if (audit_.size() <= MAX_AUDIT) {
             TxRecord tx_record(kind, amount, ts, note, id_); 
             audit_.push_back(tx_record);
         }
@@ -113,11 +122,11 @@ std::unique_ptr<IAccount>& Portfolio::Get(const std::string& id) {
     return accounts_.at(id);
 }
 
-int32_t Portfolio::Count_accounts() {
+int32_t Portfolio::CountAccounts() {
     return accounts_.size();
 }
 
-void Portfolio::Apply_all(const std::vector<TxRecord>& records) {  
+void Portfolio::ApplyAll(const std::vector<TxRecord>& records) {  
     for (auto& iter : records) {
         if (Is_find__(iter.id)) {
             std::unique_ptr<IAccount>& account = Get(iter.id);
@@ -130,7 +139,7 @@ void Portfolio::Apply_all(const std::vector<TxRecord>& records) {
     }
 }
 
-void Portfolio::Apply_from_ledger(const TxKind trans_type[], int32_t amount[], 
+void Portfolio::ApplyFromLedger(const TxKind trans_type[], int32_t amount[], 
     int64_t time_stamp[], std::string note[],
     std::string id[], int32_t count) {
         std::vector<TxRecord> records;
@@ -139,10 +148,10 @@ void Portfolio::Apply_from_ledger(const TxKind trans_type[], int32_t amount[],
             time_stamp[iter], note[iter], id[iter]);
             records.push_back(tx);
         }
-        Apply_all(records);
+        ApplyAll(records);
 }
 
-bool Portfolio::transfer(TransferRecord tr) {
+bool Portfolio::Transfer(TransferRecord tr) {
     auto it_fromId = accounts_.find(tr.from_id);
     auto it_toId = accounts_.find(tr.to_id);
     if (it_fromId != accounts_.end() && 
@@ -161,7 +170,7 @@ bool Portfolio::transfer(TransferRecord tr) {
     }   
 }
 
-int64_t Portfolio::total_exposure() {
+int64_t Portfolio::TotalExposure() {
     int64_t total = 0;
     for (auto& iter : accounts_) {
         total += iter.second->Balance();
@@ -180,7 +189,7 @@ bool Portfolio::Is_find__(const std::string& id) {
 
 void Portfolio::RecordTransaction__(TxKind kind, int64_t amount, 
     int64_t ts, std::string note, const std::string& id) {
-        if (audit_.size() <= kMaxAudit) {
+        if (audit_.size() <= MAX_AUDIT) {
             TxRecord tx_record(kind, amount, ts, note, id); 
             audit_.push_back(tx_record);
         }
