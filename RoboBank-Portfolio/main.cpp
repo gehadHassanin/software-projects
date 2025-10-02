@@ -10,8 +10,13 @@
  * 
  */
 
+#include <stdint.h>
+
 #include <iostream>
 #include <memory>
+#include <string>
+#include <vector>
+#include <unordered_map>
 
 #include "portfolio.h"
 
@@ -30,11 +35,11 @@ int main() {
     int64_t fee_flat;
     int64_t balance;
     std::vector<TxRecord> records;
-    TxKind trans_type[kMaxAudit];
-    int32_t amounts[kMaxAudit]; 
-    int64_t ts[kMaxAudit]; 
-    std::string notes[kMaxAudit];
-    std::string ids[kMaxAudit];
+    TxKind trans_type[MAX_AUDIT];
+    int32_t amounts[MAX_AUDIT]; 
+    int64_t ts[MAX_AUDIT]; 
+    std::string notes[MAX_AUDIT];
+    std::string ids[MAX_AUDIT];
 
 
     std::cout << "I'm here to help you to add your account into portfolio...\n";
@@ -88,7 +93,7 @@ int main() {
             }
         } else if (transaction == "CountAccounts") {
             std::cout << "number of accounts = " << 
-            Portfolio::Count_accounts() << std::endl;
+            Portfolio::CountAccounts() << std::endl;
         } else if (transaction == "ApplyAll") {
             std::cout << "please, enter num of records: ";
             std::cin >> counts;
@@ -106,7 +111,7 @@ int main() {
                 records.push_back(TxRecord((TxKind)type, amount, 
                 time_stamp, note, id));
             }
-            Portfolio::Apply_all(records);
+            Portfolio::ApplyAll(records);
         } else if (transaction == "ApplyFromLedger") {
             std::cout << "please, enter num of records: ";
             std::cin >> counts;
@@ -127,7 +132,7 @@ int main() {
                 notes[iter] = note; 
                 ids[iter] = id;
             }
-            Portfolio::Apply_from_ledger(trans_type, amounts, 
+            Portfolio::ApplyFromLedger(trans_type, amounts, 
             ts, notes, ids, counts);
         } else if (transaction == "Transfer") {
             std::cout << "please, enter your from id: ";
@@ -141,7 +146,7 @@ int main() {
             std::cout << "please, enter note: ";
             std::cin >> note;
             TransferRecord tr = {from_id, to_id, amount, time_stamp, note};
-            if(Portfolio::transfer(tr)) {
+            if(Portfolio::Transfer(tr)) {
                 std::cout << "Do you want to appear new balances of accounts? (yes/no): ";
                 std::cin >> out;
                 if (out == "yes") {
@@ -159,7 +164,7 @@ int main() {
             }
         } else if (transaction == "TotalExposure") {
             std::cout << "Total exposure= " << 
-            Portfolio::total_exposure() << std::endl;
+            Portfolio::TotalExposure() << std::endl;
         } else {
             // DO NOTHING
         }
