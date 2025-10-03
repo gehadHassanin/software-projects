@@ -1,0 +1,11 @@
+<map id="Percent_of" name="Percent_of">
+<area shape="rect" id="Node000001" title="Calculate a percentage portion of an amount, with rounding options." alt="" coords="445,55,536,80"/>
+<area shape="rect" id="Node000002" href="$calculator_8cpp.html#a8b9ee26edb893e8bd636473a335484b9" title="Calculate the compound amount after a given number of years." alt="" coords="255,5,397,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="434,53,369,33,370,28,436,48"/>
+<area shape="rect" id="Node000003" href="$calculator_8cpp.html#ac6c99b3bdb826cd04ea1ab13a2c615f7" title="Convert an amount between currencies using a foreign exchange rate." alt="" coords="281,55,371,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="432,70,371,70,371,65,432,65"/>
+<area shape="rect" id="Node000004" href="$calculator_8cpp.html#a46c9ee59a55391a92f4ab3318ff76338" title="Calculate the simple interest on a principal amount." alt="" coords="267,104,385,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="436,87,370,106,369,101,434,81"/>
+<area shape="rect" id="Node000005" href="$classBaseAccount.html#a61313e46d70ff34298f40eb03ca7d5da" title="Apply simple interest to the account." alt="" coords="5,104,207,129"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="254,119,207,119,207,114,254,114"/>
+</map>

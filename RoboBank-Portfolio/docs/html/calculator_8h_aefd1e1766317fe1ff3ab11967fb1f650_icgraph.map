@@ -1,0 +1,7 @@
+<map id="ApplyFee" name="ApplyFee">
+<area shape="rect" id="Node000001" title="Apply a fee transaction to a balance." alt="" coords="389,5,472,31"/>
+<area shape="rect" id="Node000002" href="$classBaseAccount.html#a5e6f5f478fd4dc88f606df2b18862a36" title="Apply a fee to the account." alt="" coords="204,5,341,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="376,21,342,21,342,15,376,15"/>
+<area shape="rect" id="Node000003" href="$classBaseAccount.html#a06bf4f7dd4f5062eb949bfad0fbdfebc" title="Apply a transaction to the account." alt="" coords="5,5,156,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="190,21,156,21,156,15,190,15"/>
+</map>

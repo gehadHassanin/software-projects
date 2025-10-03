@@ -1,0 +1,15 @@
+<map id="BaseAccount::Record__" name="BaseAccount::Record__">
+<area shape="rect" id="Node000001" title="Record a transaction in the audit log." alt="" coords="453,80,627,105"/>
+<area shape="rect" id="Node000002" href="$classBaseAccount.html#a61313e46d70ff34298f40eb03ca7d5da" title="Apply simple interest to the account." alt="" coords="204,5,405,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="495,77,405,45,363,33,365,28,406,39,497,72"/>
+<area shape="rect" id="Node000003" href="$classBaseAccount.html#a0263bc8c38578ed4bc8e046abeed79c1" title="Deposit funds into the account." alt="" coords="223,55,387,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="439,84,387,79,387,74,439,79"/>
+<area shape="rect" id="Node000005" href="$classBaseAccount.html#a5e6f5f478fd4dc88f606df2b18862a36" title="Apply a fee to the account." alt="" coords="236,104,373,129"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="439,106,374,112,373,107,439,100"/>
+<area shape="rect" id="Node000006" href="$classBaseAccount.html#af97876a22a80a665db8c136874ba780c" title="Withdraw funds from the account." alt="" coords="217,153,393,179"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="494,113,406,143,361,156,359,151,405,138,493,108"/>
+<area shape="rect" id="Node000004" href="$classBaseAccount.html#a06bf4f7dd4f5062eb949bfad0fbdfebc" title="Apply a transaction to the account." alt="" coords="5,104,156,129"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="234,86,140,107,139,101,233,80"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="222,119,156,119,156,114,222,114"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="233,153,139,132,140,127,234,148"/>
+</map>

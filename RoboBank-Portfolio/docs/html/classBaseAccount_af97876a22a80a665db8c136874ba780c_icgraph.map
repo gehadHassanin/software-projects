@@ -1,0 +1,5 @@
+<map id="BaseAccount::Withdraw" name="BaseAccount::Withdraw">
+<area shape="rect" id="Node000001" title="Withdraw funds from the account." alt="" coords="204,5,380,31"/>
+<area shape="rect" id="Node000002" href="$classBaseAccount.html#a06bf4f7dd4f5062eb949bfad0fbdfebc" title="Apply a transaction to the account." alt="" coords="5,5,156,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,21,156,21,156,15,190,15"/>
+</map>

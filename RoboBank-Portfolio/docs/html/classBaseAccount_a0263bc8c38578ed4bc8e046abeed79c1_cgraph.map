@@ -1,0 +1,7 @@
+<map id="BaseAccount::Deposit" name="BaseAccount::Deposit">
+<area shape="rect" id="Node000001" title="Deposit funds into the account." alt="" coords="5,31,169,56"/>
+<area shape="rect" id="Node000002" href="$calculator_8cpp.html#a9854d17e077ef43b5a6b55db7ae9d417" title="Apply a deposit transaction to a balance." alt="" coords="249,5,359,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,31,235,23,236,29,170,36"/>
+<area shape="rect" id="Node000003" href="$classBaseAccount.html#ad6f10085a70690927fcb9bbcf3bb4a41" title="Record a transaction in the audit log." alt="" coords="217,55,391,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,50,204,54,203,59,169,55"/>
+</map>

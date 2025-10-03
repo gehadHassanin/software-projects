@@ -1,0 +1,8 @@
+<map id="Portfolio::ApplyAll" name="Portfolio::ApplyAll">
+<area shape="rect" id="Node000001" title="Apply a batch of transaction records to the appropriate accounts." alt="" coords="355,31,493,56"/>
+<area shape="rect" id="Node000002" href="$classPortfolio.html#a407060ed37d787a4c60db79d31be94ed" title="Apply a batch of transactions from ledger arrays." alt="" coords="108,5,307,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="341,36,306,32,307,27,341,31"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="341,46,60,46,60,41,341,41"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,35,61,42,60,37,106,30"/>
+</map>
