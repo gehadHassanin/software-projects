@@ -1,5 +1,0 @@
-<map id="CompoundAmount" name="CompoundAmount">
-<area shape="rect" id="Node000001" title="Calculate the compound amount after a given number of years." alt="" coords="5,5,148,31"/>
-<area shape="rect" id="Node000002" href="$utils_8h.html#a1ebb8165ad5d5f6c6ab7834efd2a7b28" title="Calculate a percentage portion of an amount, with rounding options." alt="" coords="196,5,287,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,15,182,15,182,21,148,21"/>
-</map>

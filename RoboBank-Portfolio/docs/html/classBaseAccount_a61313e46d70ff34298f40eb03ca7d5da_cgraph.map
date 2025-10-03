@@ -1,9 +1,0 @@
-<map id="BaseAccount::ApplyInterest" name="BaseAccount::ApplyInterest">
-<area shape="rect" id="Node000001" title="Apply simple interest to the account." alt="" coords="5,31,207,56"/>
-<area shape="rect" id="Node000002" href="$classBaseAccount.html#ad6f10085a70690927fcb9bbcf3bb4a41" title="Record a transaction in the audit log." alt="" coords="255,5,428,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,30,241,26,242,31,207,35"/>
-<area shape="rect" id="Node000003" href="$calculator_8cpp.html#a46c9ee59a55391a92f4ab3318ff76338" title="Calculate the simple interest on a principal amount." alt="" coords="283,55,400,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,51,270,57,269,63,206,56"/>
-<area shape="rect" id="Node000004" href="$utils_8h.html#a1ebb8165ad5d5f6c6ab7834efd2a7b28" title="Calculate a percentage portion of an amount, with rounding options." alt="" coords="476,55,567,80"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="400,65,462,65,462,70,400,70"/>
-</map>

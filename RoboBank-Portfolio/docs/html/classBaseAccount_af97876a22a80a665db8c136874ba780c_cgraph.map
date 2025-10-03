@@ -1,7 +1,0 @@
-<map id="BaseAccount::Withdraw" name="BaseAccount::Withdraw">
-<area shape="rect" id="Node000001" title="Withdraw funds from the account." alt="" coords="5,31,181,56"/>
-<area shape="rect" id="Node000002" href="$calculator_8cpp.html#a759ff80bf3454d47e47a2f19b22c9bf8" title="Apply a withdrawal transaction to a balance." alt="" coords="249,5,383,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,31,235,24,236,30,182,36"/>
-<area shape="rect" id="Node000003" href="$classBaseAccount.html#ad6f10085a70690927fcb9bbcf3bb4a41" title="Record a transaction in the audit log." alt="" coords="229,55,403,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,50,216,54,216,59,181,55"/>
-</map>

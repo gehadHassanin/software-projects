@@ -1,7 +1,0 @@
-<map id="BaseAccount::Fee" name="BaseAccount::Fee">
-<area shape="rect" id="Node000001" title="Apply a fee to the account." alt="" coords="5,31,143,56"/>
-<area shape="rect" id="Node000002" href="$calculator_8cpp.html#aefd1e1766317fe1ff3ab11967fb1f650" title="Apply a fee transaction to a balance." alt="" coords="236,5,319,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,32,222,22,222,27,143,37"/>
-<area shape="rect" id="Node000003" href="$classBaseAccount.html#ad6f10085a70690927fcb9bbcf3bb4a41" title="Record a transaction in the audit log." alt="" coords="191,55,364,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="143,49,177,53,177,58,142,54"/>
-</map>

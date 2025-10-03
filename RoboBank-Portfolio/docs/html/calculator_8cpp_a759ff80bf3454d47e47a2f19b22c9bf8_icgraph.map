@@ -1,7 +1,0 @@
-<map id="ApplyWithdrawal" name="ApplyWithdrawal">
-<area shape="rect" id="Node000001" title="Apply a withdrawal transaction to a balance." alt="" coords="428,5,561,31"/>
-<area shape="rect" id="Node000002" href="$classBaseAccount.html#af97876a22a80a665db8c136874ba780c" title="Withdraw funds from the account." alt="" coords="204,5,380,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="414,21,380,21,380,15,414,15"/>
-<area shape="rect" id="Node000003" href="$classBaseAccount.html#a06bf4f7dd4f5062eb949bfad0fbdfebc" title="Apply a transaction to the account." alt="" coords="5,5,156,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="190,21,156,21,156,15,190,15"/>
-</map>
