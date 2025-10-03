@@ -1,0 +1,43 @@
+# ---- Build artifacts ----
+build/
+bin/
+lib/
+*.o
+*.out
+*.a
+*.so
+*.exe
+
+# ---- CMake ----
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+Testing/
+
+# ---- Google Test ----
+# (build output and temp files during test runs)
+*.test
+*.gcda
+*.gcno
+*.gcov
+
+# ---- Doxygen ----
+docs/html/
+docs/latex/
+
+# ---- Editor/IDE ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- OS-specific ----
+.DS_Store
+Thumbs.db
+
+# ---- Logs and temp ----
+*.log
+*.tmp

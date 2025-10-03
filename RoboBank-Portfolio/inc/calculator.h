@@ -1,21 +1,21 @@
 /**
  * @file calculator.h
- * @author 
- * @brief 
+ * @author
+ * @brief
  * @version 0.1
  * @date 2025-09-20
- * 
+ *
  * @copyright Copyright (c) 2025
- * 
+ *
  */
 
-#ifndef ROBOBANK_CALCULATOR_CALCULATOR_H_
-#define ROBOBANK_CALCULATOR_CALCULATOR_H_
+#ifndef ROBOBANK_PORTFOLIO_INC_CALCULATOR_H_
+#define ROBOBANK_PORTFOLIO_INC_CALCULATOR_H_
 
 #include <stdint.h>
 
-#include <string>
 #include <map>
+#include <string>
 
 /**
  * @brief Apply a deposit transaction to a balance.
@@ -43,7 +43,7 @@ int64_t ApplyFee(int64_t balance, int32_t amount);
 
 /**
  * @brief Calculate the simple interest on a principal amount.
- * 
+ *
  * Formula: Interest = base × (APR × days / day_count_basis).
  *
  * @param base The principal amount.
@@ -53,12 +53,12 @@ int64_t ApplyFee(int64_t balance, int32_t amount);
  * @param rounding Rounding mode ("up", "down", "nearest").
  * @return The interest amount as an integer (after rounding).
  */
-int64_t SimpleInterest(int32_t base, float apr, uint16_t days, 
-   uint16_t day_count_basis, const std::string& rounding);
+int64_t SimpleInterest(int32_t base, float apr, uint16_t days,
+                       uint16_t day_count_basis, const std::string &rounding);
 
 /**
  * @brief Calculate the compound amount after a given number of years.
- * 
+ *
  * Formula: A = P × (1 + apr / compounds_per_year)^(years × compounds_per_year).
  *
  * @param principal The initial principal amount.
@@ -68,12 +68,13 @@ int64_t SimpleInterest(int32_t base, float apr, uint16_t days,
  * @param rounding Rounding mode ("up", "down", "nearest").
  * @return The final compounded amount (after rounding).
  */
-int64_t CompoundAmount(int32_t principal, float apr, uint16_t years, 
-   uint16_t  compounds_per_year, const std::string& rounding);
+int64_t CompoundAmount(int32_t principal, float apr, uint16_t years,
+                       uint16_t compounds_per_year,
+                       const std::string &rounding);
 
 /**
  * @brief Convert an amount between currencies using a foreign exchange rate.
- * 
+ *
  * The FX rate is assumed to be retrieved internally or configured externally.
  *
  * @param amount The amount to convert.
@@ -82,10 +83,8 @@ int64_t CompoundAmount(int32_t principal, float apr, uint16_t years,
  * @param rounding Rounding mode ("up", "down", "nearest").
  * @return The converted amount in the target currency.
  */
-int64_t FxConvert(int64_t amount, const std::string& from_currency, 
-   const std::string& to_currency, const std::string& rounding);
+int64_t FxConvert(int64_t amount, const std::string &from_currency,
+                  const std::string &to_currency, const std::string &rounding);
 
-
-#endif //  ROBOBANK_CALCULATOR_CALCULATOR_H_
-
+#endif  //  ROBOBANK_PORTFOLIO_INC_CALCULATOR_H_
 
