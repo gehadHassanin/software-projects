@@ -30,11 +30,11 @@ jobs:
             make
 
       - name: Compile program
-        run: g++ RoboBank-Portfolio/src/*.cpp -o roboBankProgram
+        run: g++ ./RoboBank-Portfolio/src/*.cpp -o roboBankProgram
 
       - name: Compile tests
         run: g++ -std=c++17 -Iinclude -Igoogletest/googletest/include \
-             RoboBank-Portfolio/tests/*.cpp RoboBank-Portfolio/src/*.cpp \
+             ./RoboBank-Portfolio/tests/*.cpp ./RoboBank-Portfolio/src/*.cpp \
              googletest/build/lib/libgtest.a googletest/build/lib/libgtest_main.a \
              -pthread -o ./RoboBank-Portfolio/tests/test
 
