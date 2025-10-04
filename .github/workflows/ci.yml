@@ -33,7 +33,8 @@ jobs:
         run: g++ ./RoboBank-Portfolio/src/*.cpp -o roboBankProgram
 
       - name: Compile tests
-        run: g++ -std=c++17 \
+        run: |
+             g++ -std=c++17 \
              -IRoboBank-Portfolio/inc \
              -Igoogletest/googletest/include \
              RoboBank-Portfolio/tests/*.cpp \
