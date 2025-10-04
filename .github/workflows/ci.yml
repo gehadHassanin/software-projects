@@ -1,0 +1,53 @@
+name: ci
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4  
+
+      - name: Install g++
+        run: |
+            sudo apt update  
+            sudo apt install -y g++ 
+
+      - name: Install google test
+        run: |
+            sudo apt update  
+            sudo apt install -y g++ cmake make
+            git clone https://github.com/google/googletest.git
+            cd googletest
+            mkdir build
+            cd build
+            cmake ..
+            make
+
+      - name: Compile program
+        run: g++ ./RoboBank-Portfolio/src/*.cpp ./RoboBank-Portfolio/main.cpp -o roboBankProgram
+
+      - name: Compile tests
+        run: |
+             g++ -std=c++17 \
+             -IRoboBank-Portfolio/inc \
+             -Igoogletest/googletest/include \
+             RoboBank-Portfolio/tests/*.cpp \
+             RoboBank-Portfolio/src/*.cpp \
+             googletest/build/lib/libgtest.a \
+             googletest/build/lib/libgtest_main.a \
+             -pthread -o RoboBank-Portfolio/tests/test
+
+      - name: Run tests
+        run: ./RoboBank-Portfolio/tests/test
+
+
+        
+
+
+
