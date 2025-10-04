@@ -30,7 +30,7 @@ jobs:
             make
 
       - name: Compile program
-        run: g++ ./RoboBank-Portfolio/src/*.cpp -o roboBankProgram
+        run: g++ ./RoboBank-Portfolio/src/*.cpp main.cpp -o roboBankProgram
 
       - name: Compile tests
         run: |
@@ -45,6 +45,7 @@ jobs:
 
       - name: Run tests
         run: ./RoboBank-Portfolio/tests/test
+
 
         
 
