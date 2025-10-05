@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN sudo apt update && sudo apt install -y g++ cmake make
+RUN apt-get update && sudo apt-get install -y g++ cmake make
 
 WORKDIR /app
 
@@ -8,7 +8,7 @@ COPY RoboBank-Portfolio/src/*.cpp .
 COPY RoboBank-Portfolio/main.cpp .
 COPY RoboBank-Portfolio/tests/*.cpp .
 
-RUN sudo apt update && git clone https://github.com/google/googletest.git && \
+RUN git clone https://github.com/google/googletest.git && \
     cd googletest && mkdir build && cd build && cmake .. && make
 
 RUN g++ ./RoboBank-Portfolio/src/*.cpp ./RoboBank-Portfolio/main.cpp -o roboBankProgram
