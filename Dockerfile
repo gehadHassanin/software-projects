@@ -1,4 +1,18 @@
-FROM ubuntu:latest
+
+FROM ubuntu:latest AS stylecheck
+
+RUN apt-get update && apt-get install -y python3 python3-pip \
+    && pip3 install cpplint
+
+WORKDIR /app
+
+COPY RoboBank-Portfolio/ ./RoboBank-Portfolio/
+
+RUN cpplint RoboBank-Portfolio/src/*.cpp RoboBank-Portfolio/tests/*.cpp \
+    RoboBank-Portfolio/main.cpp RoboBank-Portfolio/inc/*.h
+
+    
+FROM ubuntu:latest AS build
 
 RUN apt-get update && apt-get install -y g++ cmake make git
 
@@ -11,6 +25,7 @@ COPY RoboBank-Portfolio/inc ./inc/
 
 RUN git clone https://github.com/google/googletest.git && \
     cd googletest && mkdir build && cd build && cmake .. && make
+
 
 RUN g++ src/*.cpp main.cpp -I./inc -o roboBankProgram
 
