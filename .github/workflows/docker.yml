@@ -17,4 +17,4 @@ jobs:
         run: docker build -t app:1.0 .
 
       - name:
-        run: docker run -rm app:1.0
+        run: docker run --rm app:1.0
