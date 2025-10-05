@@ -1,0 +1,29 @@
+name: docker/ci
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  style_checking:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4  
+
+      - name: Style Check
+        run: docker build --target stylecheck -t style_app:1.0 .        
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repository
+        uses: actions/checkout@v4  
+
+      - name: Build Docker Image
+        run: docker build --target build -t app:1.0 .
+
+      - name: Run Test Program inside Docker
+        run: docker run --rm app:1.0
+

@@ -18,7 +18,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "../inc/portfolio.h"
+#include "inc/portfolio.h"
 
 int main() {
   std::string transaction;
