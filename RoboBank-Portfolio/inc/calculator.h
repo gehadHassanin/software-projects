@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef ROBOBANK_PORTFOLIO_INC_CALCULATOR_H_
-#define ROBOBANK_PORTFOLIO_INC_CALCULATOR_H_
+#ifndef _APP_ROBOBANK_PORTFOLIO_INC_CALCULATOR_H_
+#define _APP_ROBOBANK_PORTFOLIO_INC_CALCULATOR_H_
 
 #include <stdint.h>
 
@@ -86,5 +86,5 @@ int64_t CompoundAmount(int32_t principal, float apr, uint16_t years,
 int64_t FxConvert(int64_t amount, const std::string &from_currency,
                   const std::string &to_currency, const std::string &rounding);
 
-#endif  //  ROBOBANK_PORTFOLIO_INC_CALCULATOR_H_
+#endif  //  _APP_ROBOBANK_PORTFOLIO_INC_CALCULATOR_H_
 

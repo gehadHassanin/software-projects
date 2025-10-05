@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef ROBOBANK_PORTFOLIO_INC_UTILS_H_
-#define ROBOBANK_PORTFOLIO_INC_UTILS_H_
+#ifndef _APP_ROBOBANK_PORTFOLIO_INC_UTILS_H_
+#define _APP_ROBOBANK_PORTFOLIO_INC_UTILS_H_
 
 #include <stdint.h>
 
@@ -63,4 +63,4 @@ int64_t Percent_of(int64_t amount, float rate, std::string rounding) {
  */
 bool Validate_non_negative(int64_t amount) { return amount >= 0; }
 
-#endif  //  ROBOBANK_PORTFOLIO_INC_UTILS_H_
+#endif  //  _APP_ROBOBANK_PORTFOLIO_INC_UTILS_H_

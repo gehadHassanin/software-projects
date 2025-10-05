@@ -10,8 +10,8 @@
  *
  */
 
-#ifndef ROBOBANK_PORTFOLIO_INC_PORTFOLIO_H_
-#define ROBOBANK_PORTFOLIO_INC_PORTFOLIO_H_
+#ifndef _APP_ROBOBANK_PORTFOLIO_INC_PORTFOLIO_H_
+#define _APP_ROBOBANK_PORTFOLIO_INC_PORTFOLIO_H_
 
 #include <stdint.h>
 
@@ -380,4 +380,4 @@ class Portfolio {
                                   std::string note, const std::string &id);
 };
 
-#endif  //  ROBOBANK_PORTFOLIO_INC_PORTFOLIO_H_
+#endif  //  _APP_ROBOBANK_PORTFOLIO_INC_PORTFOLIO_H_
